@@ -23,7 +23,7 @@
 ;;
 (setq doom-font (font-spec :family "Cascadia Code" :size 13 :weight 'semi-light)
      doom-variable-pitch-font (font-spec :family "Cascadia Code" :size 13))
-(setq-default line-spacing 0.5)
+(setq-default line-spacing 0.6)
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -37,7 +37,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -78,3 +78,5 @@
 
 ;; Rust
 (setq lsp-rust-server 'rust-analyzer)
+
+(setq project-vc-include-untracked nil)
