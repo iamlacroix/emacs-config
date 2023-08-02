@@ -49,15 +49,16 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-;; RUst
-(setq lsp-rust-server 'rust-analyzer)
-
 (package! evil-tutor)
+
+(package! bookmark+)
 
 ;;
 ;; ivy command position
 ;;
 ;; (package! ivy-posframe)
+
+;; TODO config should be moved to config.el
 
 ;; (defun posframe-poshandler-window-top-center-offset (info)
 ;;   "Posframe's position handler.
