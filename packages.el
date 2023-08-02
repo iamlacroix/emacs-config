@@ -52,7 +52,12 @@
 ;; RUst
 (setq lsp-rust-server 'rust-analyzer)
 
+;; Vim tutorial
 (package! evil-tutor)
+
+;; Run jq queries on JSON buffers
+(package! jq-mode)
+(package! counsel-jq)
 
 ;;
 ;; ivy command position
