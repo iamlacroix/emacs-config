@@ -21,9 +21,15 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Cascadia Code" :size 13 :weight 'semi-light)
-     doom-variable-pitch-font (font-spec :family "Cascadia Code" :size 13))
-(setq-default line-spacing 0.6)
+;; (setq doom-font (font-spec :family "Cascadia Code" :size 13 :weight 'semi-light)
+;;      doom-variable-pitch-font (font-spec :family "Cascadia Code" :size 13))
+;; (setq doom-font (font-spec :family "Cascadia Code" :size 13)
+;;      doom-variable-pitch-font (font-spec :family "Cascadia Code" :size 13))
+;; (setq doom-font (font-spec :family "Operator Mono Lig" :size 13))
+(setq doom-font (font-spec :family "Fira Code" :size 13))
+;; (setq-default line-spacing 0.6)
+;; (setq-default line-spacing 0.7)
+(setq-default line-spacing 0.8)
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -34,6 +40,16 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one-light)
+
+;; For the macOS title bar
+;;
+;; Set app config from the terminal depending on a light or dark theme:
+;;
+;;   defaults write org.gnu.Emacs TransparentTitleBar DARK
+;;   defaults write org.gnu.Emacs TransparentTitleBar LIGHT
+;;
+;; See: https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -79,4 +95,18 @@
 ;; Rust
 (setq lsp-rust-server 'rust-analyzer)
 
+;; Filter out git ignored files
 (setq project-vc-include-untracked nil)
+
+;; Show instant buffer previews in ivy
+(setq ivy-buffer-preview 'everything)
+
+(setq which-key-idle-delay 0.2)
+
+;; (map! :leader :desc "Description" :n "C-c" #'dosomething)
+;; vim.keymap.set("x", "<leader>p", [["_dP]])
+;; (map! :leader
+;;       :desc "Description" "<leader>p" (kbd "_ d P"))
+
+;; Start Emacs with the window maximized
+(add-hook 'window-setup-hook #'toggle-frame-maximized)
