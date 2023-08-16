@@ -84,6 +84,23 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Keybindings
+(map! "s-P" #'execute-extended-command
+      "s-p" #'projectile-find-file
+      "s-[" #'evil-jump-backward
+      "s-]" #'evil-jump-forward
+      "s-e" #'projectile-recentf
+      "s-<mouse-1>" #'+lookup/definition
+      )
+
+;; (map! "s-P" #'execute-extended-command)
+;; (map! "s-p" #'projectile-find-file)
+;; (map! "s-<mouse-1>" #'+lookup/definition)
+
+;; (map! "C-x x" #'do-something
+;;       "C-x y" #'do-something-else
+;;       "C-x z" #'do-another-thing)
+
 ;; Rust
 (setq lsp-rust-server 'rust-analyzer)
 
