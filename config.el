@@ -105,3 +105,6 @@
 (setq lsp-rust-server 'rust-analyzer)
 
 (setq project-vc-include-untracked nil)
+
+;; Start Emacs with the window maximized
+(add-hook 'window-setup-hook #'toggle-frame-maximized)
