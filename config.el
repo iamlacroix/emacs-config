@@ -91,7 +91,10 @@
       "s-]" #'evil-jump-forward
       "s-e" #'projectile-recentf
       "s-<mouse-1>" #'+lookup/definition
+      ;; :leader :desc "Show Flycheck errors" "c p" #'flycheck-list-errors
       )
+
+;; (map! :leader :desc "Description" :n "C-c" #'dosomething)
 
 ;; (map! "s-P" #'execute-extended-command)
 ;; (map! "s-p" #'projectile-find-file)
@@ -104,7 +107,18 @@
 ;; Rust
 (setq lsp-rust-server 'rust-analyzer)
 
-(setq project-vc-include-untracked nil)
+;; (setq project-vc-include-untracked nil)
+
+;; In the modeline, display vim state using a letter instead of the dot.
+;; (setq doom-modeline-modal-icon nil)
+
+;; Smooth scrolling
+(if (boundp mac-mouse-wheel-smooth-scroll)
+    (setq  mac-mouse-wheel-smooth-scroll t)
+  (pixel-scroll-precision-mode))
+;; (pixel-scroll-precision-mode 1)
+
+(setq +ivy-buffer-preview 1)
 
 ;; Start Emacs with the window maximized
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
