@@ -23,13 +23,14 @@
 ;;
 ;; (setq doom-font (font-spec :family "Cascadia Code" :size 13 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Cascadia Code" :size 13))
-;; (setq doom-font (font-spec :family "Cascadia Code" :size 13)
-;;      doom-variable-pitch-font (font-spec :family "Cascadia Code" :size 13))
-;; (setq doom-font (font-spec :family "Operator Mono Lig" :size 13))
+;; (setq doom-font (font-spec :family "Cascadia Code" :size 13 :weight 'semi-light))
+;; (setq doom-font (font-spec :family "Cascadia Code" :size 13))
 (setq doom-font (font-spec :family "Fira Code" :size 13))
-;; (setq-default line-spacing 0.6)
+;; (setq doom-font (font-spec :family "Operator Mono Lig" :size 13))
+;;
+(setq-default line-spacing 0.6)
+;; (setq-default line-spacing 0.65)
 ;; (setq-default line-spacing 0.7)
-(setq-default line-spacing 0.8)
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -50,6 +51,7 @@
 ;;   defaults write org.gnu.Emacs TransparentTitleBar LIGHT
 ;;
 ;; See: https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar
+;; (setq doom-theme 'doom-tokyo-night)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -92,21 +94,39 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Keybindings
+(map! "s-P" #'execute-extended-command
+      "s-p" #'projectile-find-file
+      "s-[" #'evil-jump-backward
+      "s-]" #'evil-jump-forward
+      "s-e" #'projectile-recentf
+      "s-<mouse-1>" #'+lookup/definition
+      ;; :leader :desc "Show Flycheck errors" "c p" #'flycheck-list-errors
+      )
+
+;; (map! :leader :desc "Description" :n "C-c" #'dosomething)
+
+;; (map! "s-P" #'execute-extended-command)
+;; (map! "s-p" #'projectile-find-file)
+;; (map! "s-<mouse-1>" #'+lookup/definition)
+
+;; (map! "C-x x" #'do-something
+;;       "C-x y" #'do-something-else
+;;       "C-x z" #'do-another-thing)
+
 ;; Rust
 (setq lsp-rust-server 'rust-analyzer)
 
-;; Filter out git ignored files
-(setq project-vc-include-untracked nil)
+;; In the modeline, display vim state using a letter instead of the dot.
+;; (setq doom-modeline-modal-icon nil)
 
-;; Show instant buffer previews in ivy
+;; Smooth scrolling
+(if (boundp mac-mouse-wheel-smooth-scroll)
+    (setq  mac-mouse-wheel-smooth-scroll t)
+  (pixel-scroll-precision-mode))
+;; (pixel-scroll-precision-mode 1)
+
 (setq ivy-buffer-preview 'everything)
-
-(setq which-key-idle-delay 0.2)
-
-;; (map! :leader :desc "Description" :n "C-c" #'dosomething)
-;; vim.keymap.set("x", "<leader>p", [["_dP]])
-;; (map! :leader
-;;       :desc "Description" "<leader>p" (kbd "_ d P"))
 
 ;; Start Emacs with the window maximized
 (add-hook 'window-setup-hook #'toggle-frame-maximized)

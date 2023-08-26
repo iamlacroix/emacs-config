@@ -49,9 +49,6 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-;; RUst
-(setq lsp-rust-server 'rust-analyzer)
-
 ;; Vim tutorial
 (package! evil-tutor)
 
@@ -59,10 +56,14 @@
 (package! jq-mode)
 (package! counsel-jq)
 
+(package! bookmark+)
+
 ;;
 ;; ivy command position
 ;;
 ;; (package! ivy-posframe)
+
+;; TODO config should be moved to config.el
 
 ;; (defun posframe-poshandler-window-top-center-offset (info)
 ;;   "Posframe's position handler.
